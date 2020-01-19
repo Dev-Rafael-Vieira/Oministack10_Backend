@@ -20,3 +20,33 @@ git remote add origin https://github.com/Dev-Rafael-Vieira/Oministack10_Backend.
 
 //envia o primeiro push com o comando
 git push -u origin master
+
+//adiciona o nodemon em modo de desenvolvimento para fazer o servidor reestartar quando o código for mudado
+yarn add nodemon -D
+
+//aidciona o atalho do comando "yarn nodemon index.js" criando um script no package.json 
+"scripts":{"dev": "nodemon index.js"}
+assim podemos rodar o servidor com o comando - yarn dev
+
+sudo docker pull mongo
+// comando no ubuntu para baixar a imagem do mongo na pull para subir o banco de dados 
+
+sudo docker run --name mongo -p 27017:27017 -d mongo
+// comando sobe a imagem para rodar no container e seta a port da maquina local 27017 para acessar a porta do container tambem com 27017 -d designa a imagem que irá rodar
+
+sudo docker ps
+// lista os containeres
+
+Download do Robomongo Robo3t
+//assistente de interface grafica que permite aconpanhar o banco de dados e visualizar os inserts
+
+docker start nomedaimagem
+//sobe o container novamente de pois de ter fechado o terminal 
+
+//adicionando o modulo mongoose 
+yarn add mongoose
+
+// adiciona o modulo para lidar com a consulta da api do github
+yarn add axios
+
+
