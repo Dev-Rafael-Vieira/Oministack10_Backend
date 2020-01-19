@@ -1,0 +1,22 @@
+// inicia o projeto
+yarn init -y
+
+// adiciona o arquivo .gitignore com pastas que não serão enviadas para o repositório
+
+//aidciona o modulo express no projeto
+yarn add express
+
+//inicia o git 
+git init
+
+// adiciona todos os arquivos a staging area com o comando
+git add *
+
+// adiciona o comentario com o comando
+git commit -m "primeiro comentario"
+
+// adiciona o repositório do github com o comando
+git remote add origin https://github.com/Dev-Rafael-Vieira/Oministack10_Backend.git
+
+//envia o primeiro push com o comando
+git push -u origin master
