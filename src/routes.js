@@ -12,6 +12,8 @@ const routes = Router(); // instancia o Router
 
 routes.get('/devs', DevControler.index);
 routes.post('/devs', DevControler.store);
+routes.put('/devs',  DevControler.update);
+routes.delete('/devs', DevControler.destroy);
 
 routes.get('/search', SearchController.index);
 

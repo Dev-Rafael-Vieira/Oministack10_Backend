@@ -5,6 +5,7 @@ const routes = require('./routes');
 const app = express();
 
 mongoose.connect("mongodb://localhost:27017/oministack10_backend", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.set('useCreateIndex', true); // corrige erro de deprecation
 
 app.use(express.json()); // deve vir antes das rotas
 app.use(routes);

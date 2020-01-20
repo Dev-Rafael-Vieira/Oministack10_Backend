@@ -42,5 +42,38 @@ module.exports = {
         return response.json(dev);
     },
 
- 
+    async update(request, response){
+        // nome, avatar, bio, localização, techs
+        let { github_username, name, avatar_url, bio, latitude, longitude, techs } = request.body;
+
+        let dev = await Dev.findOne({ github_username });
+        
+        //assume os valores antigos se a api não passar determinado parametro
+        name = !name ? dev.name : name;
+        avatar_url = !avatar_url ? dev.avatar_url : avatar_url;
+        bio = !bio ? dev.bio : bio;
+        location = !latitude || !longitude ? dev.location : { type: 'Point',coordinates: [longitude, latitude], };
+        techs = !techs ? dev.techs : techs;
+
+        dev = await dev.updateOne({
+            name,
+            avatar_url,
+            bio,
+            techs,
+            location,
+        });
+
+        dev = await Dev.findOne({ github_username });
+
+        return response.json({dev});
+    },
+
+    async destroy(request, response){
+        const { github_username } = request.body;
+        await Dev.deleteOne({ github_username });
+
+        const devs = await Dev.find();
+
+        return response.json(devs);
+    }
 };
