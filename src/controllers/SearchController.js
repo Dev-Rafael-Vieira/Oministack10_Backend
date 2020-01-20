@@ -7,7 +7,7 @@ module.exports = {
         
         const techsArray = parseStringAsArray(techs);
 
-        const devs = await Dev.find({
+        const devs = await Dev.find({ 
             techs: {
                 $in: techsArray, //$in operador lógico do mongo pode-se pesquisar por mongo operators
             },
@@ -20,10 +20,10 @@ module.exports = {
                         type: 'Point',
                         coordinates: [longitude, latitude],
                     },
-                    $maxDisntance: 10000, // seta uma distância máxima de 10000metros
-                }
-            }
-        })
+                    $maxDistance: 10000, // seta uma distância máxima de 10000metros
+                },
+            },
+        });
         
         return response.json({devs});
     }
