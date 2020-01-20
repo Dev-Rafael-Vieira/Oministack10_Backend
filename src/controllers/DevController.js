@@ -53,7 +53,7 @@ module.exports = {
         avatar_url = !avatar_url ? dev.avatar_url : avatar_url;
         bio = !bio ? dev.bio : bio;
         location = !latitude || !longitude ? dev.location : { type: 'Point',coordinates: [longitude, latitude], };
-        techs = !techs ? dev.techs : techs;
+        techs = !techs ? dev.techs : parseStringAsArray(techs);
 
         dev = await dev.updateOne({
             name,
